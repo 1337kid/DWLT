@@ -5,7 +5,6 @@ import { TransactionCard } from "@/components"
 
 const page = () => {
   const token = getCookies('token').token
-  console.log(token)
   const [history,setHisory] = useState({sent:[],received:[]})
 
   useEffect(() => {
