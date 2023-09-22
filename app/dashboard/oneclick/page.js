@@ -5,7 +5,7 @@ import { getCookies } from 'cookies-next';
 import { Alertbox } from "@/components"
 
 const page = () => {
-  const token = getCookies('token') 
+  const token = getCookies('token').token
   const [formData,setFormData] = useState({title:'',email:'',amount:''})
   const [alertbox,setAlertbox] = useState(null)
   const [oneclicks,setOneclicks] = useState(null)

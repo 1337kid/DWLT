@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation"
 const page = () => {
   const router = useRouter()
   const [amount,setAmount] = useState(null)
-  const token = getCookies('token') 
+  const token = getCookies('token').token
   const [wallet,setWallet] = useState(0)
   const [alertbox,setAlertbox] = useState(null)
 
