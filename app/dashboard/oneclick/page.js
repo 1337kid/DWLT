@@ -1,11 +1,11 @@
 "use client"
 import { CustBtn, OneClickCard } from "@/components"
 import { useState,useEffect } from "react"
-import { useCookies } from 'next-client-cookies'
+import { getCookies } from 'cookies-next';
 import { Alertbox } from "@/components"
 
 const page = () => {
-  const token = useCookies().get('token') 
+  const token = getCookies('token') 
   const [formData,setFormData] = useState({title:'',email:'',amount:''})
   const [alertbox,setAlertbox] = useState(null)
   const [oneclicks,setOneclicks] = useState(null)

@@ -1,10 +1,10 @@
 "use client"
 import { useState,useEffect } from "react"
-import { useCookies } from 'next-client-cookies'
+import { getCookies } from 'cookies-next';
 import { TransactionCard } from "@/components"
 
 const page = () => {
-  const token = useCookies().get('token') 
+  const token = getCookies('token') 
   const [history,setHisory] = useState({sent:[],received:[]})
 
   useEffect(() => {

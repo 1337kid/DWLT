@@ -1,13 +1,13 @@
 "use client"
 import { useState,useEffect } from "react"
-import { useCookies } from 'next-client-cookies'
+import { getCookies } from 'cookies-next';
 import { Alertbox, CustBtn } from "@/components"
 import { useRouter } from "next/navigation"
 
 const page = () => {
   const router = useRouter()
   const [amount,setAmount] = useState(null)
-  const token = useCookies().get('token') 
+  const token = getCookies('token') 
   const [wallet,setWallet] = useState(0)
   const [alertbox,setAlertbox] = useState(null)
 
