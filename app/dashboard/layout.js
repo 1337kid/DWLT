@@ -2,7 +2,7 @@ import { DashboardNav } from "@/components"
 
 export const metadata = {
   title: 'DWLT | Dashboard',
-  description: 'dwlt',
+  description: 'A digital wallet',
 }
 
 export default function RootLayout({ children }) {
