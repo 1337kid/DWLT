@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-text {
+  background: #0093E9;
+  background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  @apply bg-clip-text text-transparent
+}
+
+.sign_in_button {
+  @apply bg-gray-950 text-white hover:bg-gray-800 p-2 rounded-md
+}
+
+body{
+  @apply bg-slate-200;
+}
+
+.card-sky{
+  @apply bg-sky-200 p-2 border-2 rounded-md border-sky-300 w-full text-center
+}
+
+.form_input{
+  @apply rounded-md p-2 border border-sky-300 focus:border-sky-600 focus:outline-none
+}
+
+.success {
+  @apply bg-green-300 border-2 border-green-500
+}
+
+.error {
+  @apply bg-red-300 border-2 border-red-500
+}
