@@ -3,6 +3,7 @@ import { useState,useEffect } from "react"
 import { getCookies } from 'cookies-next';
 import { Alertbox, CustBtn } from "@/components"
 import { useRouter } from "next/navigation"
+import checkUser from "@/utils/checkUser";
 
 const page = () => {
   const router = useRouter()
@@ -14,9 +15,10 @@ const page = () => {
   const [pay,setPay] = useState({email:null,amount:null})
   
   useEffect(() => {
+    if(checkUser()){
     fetch('/api/user/wallet',{
       headers:{'Authorization':`bearer ${token}`}
-    }).then(res => res.json()).then(data => setWallet(data.wallet))
+    }).then(res => res.json()).then(data => setWallet(data.wallet))}
   },[alertbox])
 
   //Update Wallet , api call

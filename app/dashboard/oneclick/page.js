@@ -3,17 +3,19 @@ import { CustBtn, OneClickCard } from "@/components"
 import { useState,useEffect } from "react"
 import { getCookies } from 'cookies-next';
 import { Alertbox } from "@/components"
+import checkUser from "@/utils/checkUser";
 
 const page = () => {
   const token = getCookies('token').token
   const [formData,setFormData] = useState({title:'',email:'',amount:''})
   const [alertbox,setAlertbox] = useState(null)
-  const [oneclicks,setOneclicks] = useState(null)
+  const [oneclicks,setOneclicks] = useState([])
 
   useEffect(() => {
+    if(checkUser()){
     fetch("/api/oneclick",{
       headers:{'Authorization':`bearer ${token}`}
-    }).then(res => res.json()).then(data => setOneclicks(data))
+    }).then(res => res.json()).then(data => setOneclicks(data))}
   },[alertbox])
 
   //create onclick
@@ -52,9 +54,13 @@ const page = () => {
         <div className='w-full text-center px-3'>
           <h4 className='text-xl'>OneClick Pay</h4>
           <div className="pt-2 flex gap-3 flex-col">
-            {oneclicks && oneclicks.map((item) => (
+            {oneclicks.length !== 0 ? oneclicks.map((item) => (
               <OneClickCard item={item} handleClick={() => sendMoney({email:item.email,amount:item.amount})}/>
-            ))}
+            )) : (
+              <>
+                <p>No records</p>
+              </>
+            )}
           </div>
         </div>
         

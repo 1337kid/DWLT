@@ -3,6 +3,7 @@ import { signIn, useSession } from 'next-auth/react'
 import { CustBtn, Footer } from '@/components'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import checkUser from '@/utils/checkUser'
 
 export default function Home() {
   const session = useSession()
@@ -10,6 +11,7 @@ export default function Home() {
   const [status,setStatus] = useState({users:0,transactions:0})
 
   useEffect(() => {
+    if(session.status === 'authenticated'){checkUser()}
     fetch(`/api/status`).then(res => res.json()).then(data => setStatus(data))
   },[])
 

@@ -40,7 +40,8 @@ const options = {
       if(account) {
         const ltoken = await SignToken({id:user?.email})
         token.UserToken = ltoken
-        cookies().set('token', ltoken)
+        const oneDay = 24 * 60 * 60 * 1000
+        cookies().set('token', ltoken, {expires: Date.now() + oneDay})
       }
       return token
     },
