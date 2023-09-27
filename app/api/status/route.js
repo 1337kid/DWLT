@@ -3,6 +3,8 @@ import User from "@/models/User";
 import Transaction from "@/models/Transaction";
 import { NextResponse } from "next/server";
 
+export const revalidate = 0
+
 export const GET = async() => {
   try {
     await connectToDB()
